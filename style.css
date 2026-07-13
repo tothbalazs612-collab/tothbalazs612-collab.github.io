@@ -323,7 +323,7 @@
   @media (max-width:800px){.about-grid{grid-template-columns:1fr;}}
   .about-grid p{color:var(--paper-dim); margin-bottom:16px;}
   .about-logo{
-    width:min(220px, 70%);
+    width:min(120px, 40%);
     height:auto;
     display:block;
     margin-top:8px;
