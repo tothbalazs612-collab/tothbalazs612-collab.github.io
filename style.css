@@ -322,6 +322,12 @@
   }
   @media (max-width:800px){.about-grid{grid-template-columns:1fr;}}
   .about-grid p{color:var(--paper-dim); margin-bottom:16px;}
+  .about-logo{
+    width:min(220px, 70%);
+    height:auto;
+    display:block;
+    margin-top:8px;
+  }
   .stat-strip{
     display:grid;
     grid-template-columns:repeat(3,1fr);
