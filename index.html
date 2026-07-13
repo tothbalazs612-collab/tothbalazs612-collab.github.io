@@ -17,7 +17,6 @@
 <meta property="og:title" content="Green Power Agro Kft — Farming Simulator 22 Multi Szerver">
 <meta property="og:description" content="Magyar FS22 multi szerver közösség. Reális gazdaság, válogatott modcsomag, aktív Discord közösség.">
 <meta property="og:image" content="https://www.greenpoweragro.hu/Green_kft_logo_1.png">
-<meta name="google-site-verification" content="ZFGJkPkPu8G3xWmGdbz9tCcsC7_zTn1Ox14wz_efBx8" />
 
 <!-- Twitter/X kártya -->
 <meta name="twitter:card" content="summary_large_image">
@@ -149,7 +148,6 @@
 
 <div class="furrow"></div>
 
-<!-- JÁRMŰFLOTTA: ÉRINTETLENÜL HAGYVA, EREDETI IKONOKKAL -->
 <section id="flotta">
   <div class="wrap">
     <div class="section-head">
@@ -182,27 +180,32 @@
 
 <div class="furrow"></div>
 
-<!-- KÜLÖNÁLLÓ ÚJ GALÉRIA RÉSZ A KÜLDÖTT KÉPEKKEL -->
 <section id="galeria">
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow"><span class="dot"></span>Galéria</div>
-      <h2>Életképek a gazdaságból</h2>
-      <p>Pillantások a mindennapi munkafolyamatokba, aratásokba és a közös nagyprojektekbe.</p>
+      <h2>Pillanatképek a birtokról</h2>
+      <p>Közös munkák, betakarítások, gépsorok — így néz ki nálunk egy hétköznap a mezőn.</p>
     </div>
     <div class="gallery-grid">
-      <div class="gallery-item"><img src="1248130_115.jpg" alt="Farming Simulator 22 fotó"></div>
-      <div class="gallery-item"><img src="1248130_124.jpg" alt="Farming Simulator 22 fotó"></div>
-      <div class="gallery-item"><img src="fsScreen_2026_01_12_21_39_41.jpg" alt="Farming Simulator 22 fotó"></div>
-      <div class="gallery-item"><img src="fsScreen_2026_01_16_21_10_24.jpg" alt="Farming Simulator 22 fotó"></div>
-      <div class="gallery-item"><img src="fsScreen_2026_01_20_20_19_48.jpg" alt="Farming Simulator 22 fotó"></div>
-      <div class="gallery-item"><img src="fsScreen_2026_01_25_18_55_52.jpg" alt="Farming Simulator 22 fotó"></div>
-      <div class="gallery-item"><img src="fsScreen_2026_01_30_22_23_12.jpg" alt="Farming Simulator 22 fotó"></div>
-      <div class="gallery-item"><img src="fsScreen_2026_01_30_22_24_03.jpg" alt="Farming Simulator 22 fotó"></div>
-      <div class="gallery-item"><img src="fsScreen_2026_07_13_08_56_09_ScreenshotMode.jpg" alt="Farming Simulator 22 fotó"></div>
+      <button class="gallery-item" data-full="gallery/1248130_115.jpg"><img src="gallery/1248130_115.jpg" alt="Green Power Agro Kft — pillanatkép a szerverről" loading="lazy"></button>
+      <button class="gallery-item" data-full="gallery/1248130_124.jpg"><img src="gallery/1248130_124.jpg" alt="Green Power Agro Kft — pillanatkép a szerverről" loading="lazy"></button>
+      <button class="gallery-item" data-full="gallery/fsScreen_2026_01_12_21_39_41.png"><img src="gallery/fsScreen_2026_01_12_21_39_41.png" alt="Green Power Agro Kft — pillanatkép a szerverről" loading="lazy"></button>
+      <button class="gallery-item" data-full="gallery/fsScreen_2026_01_16_21_10_24.png"><img src="gallery/fsScreen_2026_01_16_21_10_24.png" alt="Green Power Agro Kft — pillanatkép a szerverről" loading="lazy"></button>
+      <button class="gallery-item" data-full="gallery/fsScreen_2026_01_20_20_19_48.png"><img src="gallery/fsScreen_2026_01_20_20_19_48.png" alt="Green Power Agro Kft — pillanatkép a szerverről" loading="lazy"></button>
+      <button class="gallery-item" data-full="gallery/fsScreen_2026_01_25_18_55_52.png"><img src="gallery/fsScreen_2026_01_25_18_55_52.png" alt="Green Power Agro Kft — pillanatkép a szerverről" loading="lazy"></button>
+      <button class="gallery-item" data-full="gallery/fsScreen_2026_01_30_22_23_12.png"><img src="gallery/fsScreen_2026_01_30_22_23_12.png" alt="Green Power Agro Kft — pillanatkép a szerverről" loading="lazy"></button>
+      <button class="gallery-item" data-full="gallery/fsScreen_2026_01_30_22_24_03.png"><img src="gallery/fsScreen_2026_01_30_22_24_03.png" alt="Green Power Agro Kft — pillanatkép a szerverről" loading="lazy"></button>
+      <button class="gallery-item" data-full="gallery/fsScreen_2026_07_13_08_56_09_ScreenshotMode.png"><img src="gallery/fsScreen_2026_07_13_08_56_09_ScreenshotMode.png" alt="Green Power Agro Kft — pillanatkép a szerverről" loading="lazy"></button>
+      <button class="gallery-item" data-full="gallery/fsScreen_2026_07_13_09_26_59_ScreenshotMode.png"><img src="gallery/fsScreen_2026_07_13_09_26_59_ScreenshotMode.png" alt="Green Power Agro Kft — pillanatkép a szerverről" loading="lazy"></button>
     </div>
   </div>
 </section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Bezárás">&times;</button>
+  <img src="" alt="" id="lightboxImg">
+</div>
 
 <div class="furrow"></div>
 
@@ -266,5 +269,28 @@
   </div>
 </footer>
 
+<script>
+  (function(){
+    var lb = document.getElementById('lightbox');
+    var lbImg = document.getElementById('lightboxImg');
+    var closeBtn = document.getElementById('lightboxClose');
+    document.querySelectorAll('.gallery-item').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        lbImg.src = btn.getAttribute('data-full');
+        lbImg.alt = btn.querySelector('img').alt;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    function close(){
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+      lbImg.src = '';
+    }
+    closeBtn.addEventListener('click', close);
+    lb.addEventListener('click', function(e){ if(e.target === lb) close(); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close(); });
+  })();
+</script>
 </body>
 </html>
