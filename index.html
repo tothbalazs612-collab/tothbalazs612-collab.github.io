@@ -54,6 +54,7 @@
       <li><a href="#rolunk">Rólunk</a></li>
       <li><a href="#kinalunk">Amit kínálunk</a></li>
       <li><a href="#flotta">Járműflotta</a></li>
+      <li><a href="#galeria">Galéria</a></li>
       <li><a href="#csatlakozas">Csatlakozás</a></li>
       <li><a href="#szabalyzat">Szabályzat</a></li>
     </ul>
@@ -179,6 +180,35 @@
 
 <div class="furrow"></div>
 
+<section id="galeria">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow"><span class="dot"></span>Galéria</div>
+      <h2>Pillanatképek a birtokról</h2>
+      <p>Közös munkák, betakarítások, gépsorok — így néz ki nálunk egy hétköznap a mezőn.</p>
+    </div>
+    <div class="gallery-grid">
+      <button class="gallery-item" data-full="gallery/1248130_115.jpg"><img src="gallery/1248130_115.jpg" alt="Green Power Agro Kft — pillanatkép a szerverről" loading="lazy"></button>
+      <button class="gallery-item" data-full="gallery/1248130_124.jpg"><img src="gallery/1248130_124.jpg" alt="Green Power Agro Kft — pillanatkép a szerverről" loading="lazy"></button>
+      <button class="gallery-item" data-full="gallery/fsScreen_2026_01_12_21_39_41.png"><img src="gallery/fsScreen_2026_01_12_21_39_41.png" alt="Green Power Agro Kft — pillanatkép a szerverről" loading="lazy"></button>
+      <button class="gallery-item" data-full="gallery/fsScreen_2026_01_16_21_10_24.png"><img src="gallery/fsScreen_2026_01_16_21_10_24.png" alt="Green Power Agro Kft — pillanatkép a szerverről" loading="lazy"></button>
+      <button class="gallery-item" data-full="gallery/fsScreen_2026_01_20_20_19_48.png"><img src="gallery/fsScreen_2026_01_20_20_19_48.png" alt="Green Power Agro Kft — pillanatkép a szerverről" loading="lazy"></button>
+      <button class="gallery-item" data-full="gallery/fsScreen_2026_01_25_18_55_52.png"><img src="gallery/fsScreen_2026_01_25_18_55_52.png" alt="Green Power Agro Kft — pillanatkép a szerverről" loading="lazy"></button>
+      <button class="gallery-item" data-full="gallery/fsScreen_2026_01_30_22_23_12.png"><img src="gallery/fsScreen_2026_01_30_22_23_12.png" alt="Green Power Agro Kft — pillanatkép a szerverről" loading="lazy"></button>
+      <button class="gallery-item" data-full="gallery/fsScreen_2026_01_30_22_24_03.png"><img src="gallery/fsScreen_2026_01_30_22_24_03.png" alt="Green Power Agro Kft — pillanatkép a szerverről" loading="lazy"></button>
+      <button class="gallery-item" data-full="gallery/fsScreen_2026_07_13_08_56_09_ScreenshotMode.png"><img src="gallery/fsScreen_2026_07_13_08_56_09_ScreenshotMode.png" alt="Green Power Agro Kft — pillanatkép a szerverről" loading="lazy"></button>
+      <button class="gallery-item" data-full="gallery/fsScreen_2026_07_13_09_26_59_ScreenshotMode.png"><img src="gallery/fsScreen_2026_07_13_09_26_59_ScreenshotMode.png" alt="Green Power Agro Kft — pillanatkép a szerverről" loading="lazy"></button>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Bezárás">&times;</button>
+  <img src="" alt="" id="lightboxImg">
+</div>
+
+<div class="furrow"></div>
+
 <section id="csatlakozas">
   <div class="wrap">
     <div class="section-head">
@@ -239,5 +269,28 @@
   </div>
 </footer>
 
+<script>
+  (function(){
+    var lb = document.getElementById('lightbox');
+    var lbImg = document.getElementById('lightboxImg');
+    var closeBtn = document.getElementById('lightboxClose');
+    document.querySelectorAll('.gallery-item').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        lbImg.src = btn.getAttribute('data-full');
+        lbImg.alt = btn.querySelector('img').alt;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    function close(){
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+      lbImg.src = '';
+    }
+    closeBtn.addEventListener('click', close);
+    lb.addEventListener('click', function(e){ if(e.target === lb) close(); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close(); });
+  })();
+</script>
 </body>
 </html>
